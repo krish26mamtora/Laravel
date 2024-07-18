@@ -1,0 +1,190 @@
+@extends('display.Chat')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        #main {
+            font-family: 'Poppins', sans-serif;
+            height: 650px;
+            width: 100%;
+            /* background-color: #6a5acd; */
+            position: relative;
+
+        }
+
+        #top {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            padding: 10px;
+
+            height: 70px;
+            width: 100%;
+            background-color: white;
+
+            border-radius: 0px 20px 0px 0px;
+        }
+
+        #bottom {
+            padding: 10px;
+            background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('background.jpg');
+
+            position: relative;
+            height: 560px;
+            width: 100%;
+            background-color: white;
+            border-radius: 0px 0px 20px 0px;
+
+            overflow: scroll;
+
+        }
+
+        #receivedmessages {
+            color: white;
+            word-wrap: break-word;
+            background-color: #fc5894;
+
+            border-radius: 20px 20px 20px 0;
+            display: inline-block;
+            position: absolute;
+            max-width: 50%;
+            left: 10px;
+            padding: 10px;
+        }
+
+        #sentmessaged {
+            background-color: #007bff;
+            color: white;
+            max-width: 50%;
+            margin-left: 60%;
+            text-align: end;
+            border-radius: 20px 20px 0 20px;
+            word-wrap: break-word;
+
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            padding: 10px;
+
+        }
+
+        #addbottom {
+            margin-bottom: 50px;
+
+
+        }
+
+        #takemsg {
+            background-color: white;
+            bottom: 25px;
+            width: 63.5%;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            margin-left: -13px;
+            border: 1px solid #dbe2ef;
+            border-radius: 0 0 20px 0;
+
+        }
+
+
+        #msg {
+            width: 600px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+
+        }
+
+
+        #btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #btn:hover {
+            background-color: #0056b3;
+        }
+
+        #displayfriendprofile {
+            height: 60px;
+            width: 60px;
+            border: 1px solid white;
+            border-radius: 40px;
+        }
+
+        #focus {
+            position: fixed;
+            bottom: 80px;
+            height: 1px;
+            width: 100%;
+            background-color: red;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    @section('chats')
+        <div id="top">
+
+            <img id="displayfriendprofile" src="" alt="profile image">
+            <h2 id="viewprofilefromname"></h2>
+
+        </div>
+
+        <div id="bottom">
+            <div id="profile">
+
+            </div>
+            <div id="allmsg">
+                <table>
+
+                    <tbody>
+                        <div id="addbottom">
+                            @if (!empty($with))
+                                <div>
+                                    <h3>{{ $with }}</h3>
+                                </div>
+                            @else
+                                <p>No notifications found.</p>
+                            @endif
+
+                        </div>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div id="takemsg">
+                <form id="messageForm">
+
+                    <input type="text" id="msg" name="msg" autocomplete="off"
+                        placeholder="Enter Your message..." required>
+                    <input type="button" id="btn" value="Send">
+                </form>
+            </div>
+        </div>
+        </div>
+    @endsection
+    <script></script>
+
+</html>
